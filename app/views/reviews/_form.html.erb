@@ -11,92 +11,100 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :url %>
-    <%= form.text_field :url %>
+    <%= form.text_field :url, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :video %>
-    <%= form.text_field :video %>
+    <%= form.text_field :video, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :pic %>
-    <%= form.text_field :pic %>
+    <%= form.text_field :pic, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= form.label :buy_on_amazon %>
+    <%= form.text_field :buy_on_amazon , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <%= form.number_field :rating, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :pros %>
-    <%= form.text_area :pros %>
+    <%= form.text_area :pros, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cons %>
-    <%= form.text_area :cons %>
+    <%= form.text_area :cons, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :summary %>
-    <%= form.text_area :summary %>
+    <%= form.text_area :summary, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <h2>Specs</h2>
+
+  <div class="form-group">
     <%= form.label :os %>
-    <%= form.text_field :os %>
+    <%= form.text_field :os, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :camera %>
-    <%= form.text_field :camera %>
+    <%= form.text_field :camera, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :storage %>
-    <%= form.text_field :storage %>
+    <%= form.text_field :storage, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :display %>
-    <%= form.text_field :display %>
+    <%= form.text_field :display, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :resolution %>
-    <%= form.text_field :resolution %>
+    <%= form.text_field :resolution, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :battery %>
-    <%= form.text_field :battery %>
+    <%= form.text_field :battery, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :ram %>
-    <%= form.text_field :ram %>
+    <%= form.text_field :ram, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :weight %>
-    <%= form.text_field :weight %>
+    <%= form.text_field :weight, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
+
 <% end %>

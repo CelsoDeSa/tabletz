@@ -11,32 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :url %>
-    <%= form.text_field :url %>
+    <%= form.text_field :url, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :pic %>
-    <%= form.text_field :pic %>
+    <%= form.text_field :pic, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :intro %>
-    <%= form.text_area :intro %>
+    <%= form.text_area :intro, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :guide %>
-    <%= form.text_area :guide %>
+    <%= form.text_area :guide, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :reviews %>
+    <%= collection_select(:post, :review_ids, Review.all, :id, :title, { :multiple => true }, { class: "form-control" } ) %>    
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
