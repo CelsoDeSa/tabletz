@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_135804) do
+ActiveRecord::Schema.define(version: 2019_08_01_124640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,45 @@ ActiveRecord::Schema.define(version: 2019_07_31_135804) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.string "pic"
+    t.text "intro"
+    t.text "guide"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts_reviews", id: false, force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "review_id", null: false
+    t.index ["post_id"], name: "index_posts_reviews_on_post_id"
+    t.index ["review_id"], name: "index_posts_reviews_on_review_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.string "video"
+    t.string "pic"
+    t.integer "rating"
+    t.text "pros"
+    t.text "cons"
+    t.text "summary"
+    t.text "description"
+    t.string "os"
+    t.string "camera"
+    t.string "storage"
+    t.string "display"
+    t.string "resolution"
+    t.string "battery"
+    t.string "ram"
+    t.string "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

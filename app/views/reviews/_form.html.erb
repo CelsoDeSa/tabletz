@@ -1,0 +1,102 @@
+<%= form_with(model: review, local: true) do |form| %>
+  <% if review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.text_field :video %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pic %>
+    <%= form.text_field :pic %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pros %>
+    <%= form.text_area :pros %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cons %>
+    <%= form.text_area :cons %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :os %>
+    <%= form.text_field :os %>
+  </div>
+
+  <div class="field">
+    <%= form.label :camera %>
+    <%= form.text_field :camera %>
+  </div>
+
+  <div class="field">
+    <%= form.label :storage %>
+    <%= form.text_field :storage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :display %>
+    <%= form.text_field :display %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resolution %>
+    <%= form.text_field :resolution %>
+  </div>
+
+  <div class="field">
+    <%= form.label :battery %>
+    <%= form.text_field :battery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ram %>
+    <%= form.text_field :ram %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
