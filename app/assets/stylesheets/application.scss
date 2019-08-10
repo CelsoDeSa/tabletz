@@ -14,8 +14,94 @@
 //  *= require_self
 //  */
 
- @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "material_icons";
+@import "bootstrap";
 
-.navbar {
+body {
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+ }
+
+.main {
+    background-color: white;
+}
+
+.vertical-navbar {
     background-color: #dc3545;
+    min-height: 100vh;
+    min-width: 70px;
+    max-width: 70px;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 75px;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+// .vertical-nav {
+//     background-color: #dc3545;
+//     // min-width: 6rem;
+//     // width: 6rem;
+//     height: 100vh;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     // box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+//     z-index: 3;
+// }
+
+.nav-link {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+.nav-item .nav-link i {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 36px;
+}
+
+.nav-item:hover .nav-link i {
+    // text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.nav-separator {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.star {
+    color: rgb(255, 217, 0);
+    font-size: 36px;
+}
+
+.thumbs {
+    font-size: 20px;
+}
+
+footer {
+    background-color: black;
+}
+
+footer p {
+    font-weight: 600;
+    color: white;
+}
+
+.disclaimer {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-link, .footer-link:hover {
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    text-decoration: none;
 }

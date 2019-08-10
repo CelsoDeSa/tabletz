@@ -71,3 +71,5 @@ gem 'activeadmin'
 # Styles & Bootstrap Requirements
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'material_icons'
+gem 'font-awesome-sass'

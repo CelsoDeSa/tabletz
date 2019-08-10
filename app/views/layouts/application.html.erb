@@ -10,15 +10,94 @@
   </head>
 
   <body>
-    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-      <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Mediquem">
-        Tablet Z
-      </a>
-    </header>
+    <div class="container-fluid">
+      <div class="row">
+      
+        <div class="d-none d-md-block ml-0 pl-0 mr-0 pr-0 vertical-navbar">
+          <nav class="nav flex-column sticky-top">
+            <ul class="nav flex-column text-center">
+              <a class="navbar-brand mx-auto" href="/" aria-label="Tablet Z">
+                <%= image_tag("tabletz_logo.png", class: "logo") %>
+              </a>
+              <li class="nav-item">
+                <span class="nav-separator">____</span>
+              </li>
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
+                <a class="nav-link" href="/reviews">
+                  <i class="material-icons">star</i>
+                </a>
+              </li>
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Posts">
+                <a class="nav-link" href="/posts">
+                  <%= icon('fas', "file-invoice") %>
+                </a>
+              </li>
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Share">
+                <a class="nav-link" href="/posts">
+                  <i class="material-icons">share</i>
+                </a>
+              </li>
+            </ul>     
+          </nav>
+        </div>
 
-    <p class="notice"><%= notice %></p>
+        <div class="col-xl-3 col-lg-2 col-md-1 col-sm-1 col-xs-0">
+        </div>
 
-    <%= yield %>
+        <div class="col-xl-6 col-lg-7 col-md-9 col-sm-10 col-xs-1 main">
+          <%= yield %>
+        </div>
+
+        <div class="col-xl-3 col-lg-2 col-md-1 col-sm-1 col-xs-0">
+        </div>
+
+      </div>
+    </div>    
     
+    <footer class="footer">
+      <div class="container">
+        <br/>
+        <div class="row text-center">
+
+          <div class="col-4">
+            <p>Termos de Uso</p>
+          </div>
+
+          <div class="col-4">
+            <p>Sobre</p>
+          </div>
+
+          <div class="col-4">
+            <a class="footer-link" href="/">
+              <%= icon('fab', "facebook-square") %>
+            </a>
+            
+            <a class="footer-link" href="https://twitter.com/CelsoDeSa">
+              <%= icon('fab', "twitter-square") %>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="container-fluid">
+        <div class="row text-center">
+
+          <div class="col-1">
+          </div>
+
+          <div class="col-10">
+            <p class="disclaimer">COPYRIGHT © <%= Date.current.year %> · Tablet Z &#9733; TABLETZ.COM.BR É UM PARTICIPANTE DO PROGRAMA ASSOCIADOS DA AMAZON.COM.BR</p>
+          </div>
+
+          <div class="col-1">
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

@@ -1,4 +1,9 @@
 class ReviewsController < InheritedResources::Base
+  before_action :find_by_url
+
+  def find_by_url
+    @review = Review.find_by(url: params[:url])
+  end
 
   private
 
