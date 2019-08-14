@@ -25,5 +25,15 @@
   <%= @post.guide %>
 </p>
 
+<p>
+  <strong>Reviews:</strong>
+</p>
+
+<% @post.reviews.each do |review| %>
+
+  <p><%= review.title %></p>
+
+<% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

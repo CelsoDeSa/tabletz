@@ -22,7 +22,7 @@
         <td><%= post.pic %></td>
         <td><%= post.intro %></td>
         <td><%= post.guide %></td>
-        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Show', post.url %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

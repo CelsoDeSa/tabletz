@@ -38,7 +38,7 @@
 
   <div class="form-group">
     <%= form.label :reviews %>
-    <%= collection_select(:post, :review_ids, Review.all, :id, :title, { :multiple => true }, { class: "form-control" } ) %>    
+    <%= form.collection_select(:review_ids, Review.all, :id, :title, {}, :multiple => true , class: "form-control" ) %>    
   </div>
 
   <div class="actions">

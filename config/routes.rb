@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # get "reviews/:url", to: redirect(path: "/%{url}")
+  
   resources :reviews
   resources :posts
 
@@ -8,8 +10,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "reviews/:url", to: redirect(path: "/%{url}")
-  get "/:url", to: "reviews#show", as: "url"
+  get "/:device/:url", to: "reviews#show"
+  get "posts/:url", to: redirect(path: "/%{url}")
+  get "/:url", to: "posts#show"  
 
   root 'posts#index'
 end

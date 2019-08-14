@@ -63,7 +63,7 @@ body {
 }
 
 .nav-item .nav-link i {
-    color: rgba(255, 255, 255, 0.65);
+    color: rgb(172, 44, 56);
     font-size: 36px;
 }
 
@@ -72,21 +72,17 @@ body {
     color: rgb(255, 255, 255);
 }
 
-.nav-separator {
-    color: rgba(255, 255, 255, 0.65);
-}
-
 .star {
     color: rgb(255, 217, 0);
     font-size: 36px;
 }
 
-.thumbs {
-    font-size: 20px;
+.star-table {
+    color: rgb(255, 217, 0);
 }
 
-footer {
-    background-color: black;
+.thumbs {
+    font-size: 20px;
 }
 
 footer p {

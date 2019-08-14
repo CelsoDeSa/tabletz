@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="form-group">
+    <%= form.label :device %>
+    <%= form.select(:device, options_for_select(['tablet', 'kindle', 'ipad'], form.object.device), {}, class: "form-control") %>
+  </div>
 
   <div class="form-group">
     <%= form.label :title %>
@@ -101,6 +106,36 @@
   <div class="form-group">
     <%= form.label :weight %>
     <%= form.text_field :weight, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :backlight %>
+    <%= form.text_field :backlight, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :touchscreen %>
+    <%= form.text_field :touchscreen, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :colors %>
+    <%= form.text_field :colors, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :connection %>
+    <%= form.text_field :connection, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cpu %>
+    <%= form.text_field :cpu, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :extras %>
+    <%= form.text_area :extras, class: "form-control" %>
   </div>
 
   <div class="actions">
