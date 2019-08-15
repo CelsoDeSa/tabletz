@@ -47,8 +47,10 @@
         <td><%= review.ram %></td>
         <td><%= review.weight %></td>
         <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @admin %>
+          <td><%= link_to 'Edit', edit_review_path(review) %></td>
+          <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -56,4 +58,6 @@
 
 <br>
 
-<%= link_to 'New Review', new_review_path %>
+<% if @admin %>
+  <%= link_to 'New Review', new_review_path %>
+<% end %>

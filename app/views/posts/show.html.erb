@@ -1,39 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div>
+  <div class="row">
+      <div class="col">
+        <h1><%= @post.title %></h1>
 
-<p>
-  <strong>Url:</strong>
-  <%= @post.url %>
-</p>
+        <br />
 
-<p>
-  <strong>Pic:</strong>
-  <%= @post.pic %>
-</p>
+        <div class="float-right">
+          <%= @post.pic.html_safe %>
+        </div>
 
-<p>
-  <strong>Intro:</strong>
-  <%= @post.intro %>
-</p>
+        <div>
+          <%= simple_format @post.intro %>
+        </div>
 
-<p>
-  <strong>Guide:</strong>
-  <%= @post.guide %>
-</p>
+        <ol>
+          <% @post.reviews.each do |review| %>
+            <li class="font-weight-bold text-dark">
+              <%= link_to review.title, "#{review.device}/#{review.url}" %>
+            </li>
+          <% end %>
+        </ol>
 
-<p>
-  <strong>Reviews:</strong>
-</p>
+        <p>
+          <%= simple_format @post.highlights %>
+        </p>
 
-<% @post.reviews.each do |review| %>
+        <p>
+          <strong>Guide:</strong>
+          <%= @post.guide %>
+        </p>
+    </div>
+  </div>
+</div>
 
-  <p><%= review.title %></p>
-
+<% if @admin %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
 <% end %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

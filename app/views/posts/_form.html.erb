@@ -32,13 +32,18 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :guide %>
-    <%= form.text_area :guide, class: "form-control" %>
+    <%= form.label :highlights %>
+    <%= form.text_area :highlights, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :reviews %>
     <%= form.collection_select(:review_ids, Review.all, :id, :title, {}, :multiple => true , class: "form-control" ) %>    
+  </div>
+
+  <div class="form-group">
+    <%= form.label :guide %>
+    <%= form.text_area :guide, class: "form-control" %>
   </div>
 
   <div class="actions">

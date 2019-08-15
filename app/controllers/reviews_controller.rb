@@ -1,5 +1,5 @@
 class ReviewsController < InheritedResources::Base
-  before_action :authenticate_admin_user!, only: [:new, :update, :destroy]
+  before_action :authenticate_admin_user!, only: [:new, :edit, :update, :destroy]
   before_action :find_by_url, only: :show
 
   def find_by_url

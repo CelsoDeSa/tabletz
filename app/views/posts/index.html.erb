@@ -1,35 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<% if @admin %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Pic</th>
-      <th>Intro</th>
-      <th>Guide</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.url %></td>
-        <td><%= post.pic %></td>
-        <td><%= post.intro %></td>
-        <td><%= post.guide %></td>
-        <td><%= link_to 'Show', post.url %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+      <h2><%= link_to post.title, post.url %></h2>
+
+      <div class="float-right">
+        <%= post.pic.html_safe %>
+      </div>
+
+      <div>
+      <%= simple_format post.intro %>      
+      </div>
+
+        <br />
+
+        <% if @admin %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
