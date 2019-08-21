@@ -1,0 +1,47 @@
+<br />
+<h1><%= icon('fas', 'cogs') %> Um blog não só sobre tablets</h1>
+<br />
+
+<p>
+Quando era novo, eu era uma daquelas crianças que gostava de abrir TVs, torradeiras, receptores e rádios
+</p>
+
+<p>
+Minha em vez de brigar, encorajava a descoberta. Ela muitas vezes já usava algum tipo de tecnologia e software pelo menos uns 10 anos antes de outras pessoas.
+</p>
+
+<p>
+Com esse ambiente eu só pude crescer amando a tecnologia, aprender e desmontar as coisas para saber como elas são por dentro e como funcionam.
+</p>
+
+<h2>
+E é exatamente isto o que você vai encontrar no Tablet Z
+</h2>
+
+<p>
+Em primeira mão e com detalhes você vai saber minha opinião sobre o funcionamento de tablets, smartphones, computadores e outras tecnologias projetadas pra facilitar nossa vida.
+</p>
+
+<p>
+Sempre que eu puder vou adicionar vídeos, fotos e links para outras fontes para você saber mais sobre o aparelho.
+</p>
+
+<p>
+E se você quiser comprar, vai também encontrar links onde adquirir seu dispositivo num lugar confiável, com um preço acessível.
+</p>
+
+<p>
+Fique à vontade para mandar suas dúvidas para mim via meu <%= link_to "Twitter: Celso de Sá", "https://twitter.com/CelsoDeSa", target: "_blank", rel: "noopener noreferrer" %>.
+</p>
+
+<h2>Veja alguns artigos populares</h2>
+
+<ul style="list-style-type: none; margin: 0; padding: 0">
+    <% Review.all.limit(10).each do |review| %>
+
+        <li><%= icon('fas', 'star', class: 'text-primary') %> <strong><%= link_to review.title, "#{review.device}/#{review.url}" %></strong></li>
+
+    <% end %>
+</ul>
+
+<br />

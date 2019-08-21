@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get '/sobre', to: 'pages#sobre'
+  get '/contato', to: 'pages#contato'
+  get '/termos_de_uso', to: 'pages#termos_de_uso'
+  get '/politica_de_privacidade', to: 'pages#politica_de_privacidade'
   # get "reviews/:url", to: redirect(path: "/%{url}")
   
   resources :reviews

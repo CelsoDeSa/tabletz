@@ -1,0 +1,24 @@
+<br />
+<h1><%= icon('fas', 'comments') %> Contato</h1>
+<br />
+
+<p>
+Celso de Sá, editor do Tablet Z é uma pessoa acessível e aberto a todos.
+</p>
+<p>
+Apesar de talvez demorar um pouco para responder, você pode entrar em contato pelo seu <%= link_to "Twitter: Celso de Sá", "https://twitter.com/CelsoDeSa", target: "_blank", rel: "noopener noreferrer" %>.
+</p>
+
+<br />
+<h2>Artigos Populares</h2>
+<br />
+
+<ul style="list-style-type: none; margin: 0; padding: 0">
+    <% Review.all.limit(10).each do |review| %>
+
+        <li><%= icon('fas', 'star', class: 'text-primary') %> <strong><%= link_to review.title, "#{review.device}/#{review.url}" %></strong></li>
+
+    <% end %>
+</ul>
+
+<br />

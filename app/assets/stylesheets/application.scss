@@ -24,7 +24,12 @@ body {
     background-color: rgb(240, 240, 240);
  }
 
+.navbar {
+    background-color: #dc3545;
+ }
+
 .main {
+    min-height: 90vh;
     background-color: white;
 }
 
@@ -44,6 +49,23 @@ body {
     padding-right: 1px;
 }
 
+.logo-mini {
+    max-height: 40px;
+}
+
+.navbar-toggler {
+    max-height: 40px;
+    margin: 13px 0px 0px 0px;
+    padding: 0px 0px 13px 0px;
+}
+
+.navbar-toggler-icon {
+    color: white;
+    font-size: 24px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
 // .vertical-nav {
 //     background-color: #dc3545;
 //     // min-width: 6rem;
@@ -60,6 +82,10 @@ body {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
+}
+
+.nav-link:hover {
+    color: rgb(255, 255, 255);
 }
 
 .nav-item .nav-link i {
@@ -96,8 +122,13 @@ footer p {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.footer-link, .footer-link:hover {
+.footer-icon, .footer-icon:hover {
     color: rgb(255, 255, 255);
     font-size: 36px;
+    text-decoration: none;
+}
+
+.footer-link, .footer-link:hover {
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
