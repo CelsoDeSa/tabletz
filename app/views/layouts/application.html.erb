@@ -23,16 +23,13 @@
   </head>
 
   <body>  
-
-    <div class="d-block d-xl-none d-lg-none d-md-none navbar">
-      <nav>
-        <a class="navbar-brand" href="/" aria-label="Tablet Z">
+    
+      <nav class="d-block d-xl-none d-lg-none d-md-none navbar">
+        <a class="navbar-brand" href="/melhor-tablet-para-leitura" aria-label="Tablet Z">
           <%= image_tag("tablet_z_logo_1.svg", class: "logo-mini") %>
         </a>
 
-        <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <%= icon('fas', 'bars', class: "navbar-toggler-icon") %>
-        </button>
+        <%= icon('fas', 'bars', class: "navbar-toggler float-right", "data-toggle": "collapse", "data-target": "#navbarText", "aria-controls": "navbarText", "aria-expanded": "false", "aria-label": "Toggle navigation") %>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -43,9 +40,7 @@
             </li>
           </ul>
         </div>
-
       </nav>
-    </div>
     
     <div class="container-fluid">
       <div class="row">
@@ -53,21 +48,21 @@
         <div class="d-none d-md-block ml-0 pl-0 mr-0 pr-0 vertical-navbar">
           <nav class="nav flex-column sticky-top">
             <ul class="nav flex-column text-center">
-              <a class="navbar-brand mx-auto" href="/" aria-label="Tablet Z">
+              <a class="navbar-brand mx-auto" href="/melhor-tablet-para-leitura" aria-label="Tablet Z">
                 <%= image_tag("tablet_z_logo_1.svg", class: "logo") %>
               </a>
               <br />
-              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
+              <li class="d-none nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
                 <a class="nav-link" href="/reviews">
                   <i class="material-icons">star</i>
                 </a>
               </li>
-              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Posts">
+              <li class="d-none nav-item" data-toggle="tooltip" data-placement="right" title="Posts">
                 <a class="nav-link" href="/posts">
                   <%= icon('fas', "file-invoice") %>
                 </a>
               </li>
-              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Share">
+              <li class="d-none nav-item" data-toggle="tooltip" data-placement="right" title="Share">
                 <a class="nav-link" href="/posts">
                   <i class="material-icons">share</i>
                 </a>

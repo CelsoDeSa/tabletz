@@ -54,16 +54,11 @@ body {
 }
 
 .navbar-toggler {
-    max-height: 40px;
-    margin: 13px 0px 0px 0px;
-    padding: 0px 0px 13px 0px;
-}
-
-.navbar-toggler-icon {
     color: white;
     font-size: 24px;
-    margin: 0px 0px 0px 0px;
+    margin: 13px 0px 13px 0px;
     padding: 0px 0px 0px 0px;
+    cursor: pointer;
 }
 
 // .vertical-nav {
@@ -100,7 +95,7 @@ body {
 
 .star {
     color: rgb(255, 217, 0);
-    font-size: 36px;
+    font-size: 24px;
 }
 
 .star-table {

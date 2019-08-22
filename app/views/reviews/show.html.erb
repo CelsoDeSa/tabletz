@@ -14,11 +14,23 @@
     <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 card text-white bg-dark">
       <div class="card-header text-center">
           <% if @review.rating %>
-              <% @review.rating.times do %>
-                  <i class="material-icons star">star</i>
+              <% stars = @review.rating %>
+              <% full_stars = stars.floor %>
+              <% empty_stars = 5 - stars %>
+              <% half_star = empty_stars - empty_stars.floor %>
+
+              <% full_stars.times do %>
+                  <%= icon('fas', 'star', class: 'star') %>
               <% end %>
-              <% (5 - @review.rating).times do %>
-                  <i class="material-icons star">star_border</i>
+
+              <% if half_star > 0 %>
+                <%= icon('fas', 'star-half-alt', class: 'star') %>
+              <% end %>
+
+              <% if empty_stars %>
+                <% empty_stars.floor.times do %>
+                  <%= icon('far', 'star', class: 'star') %>                  
+                <% end %>
               <% end %>
           <% end %>
       </div>
@@ -78,20 +90,32 @@
         <th><%= @review.title %></th>
         <th>
           <% if @review.rating %>
-              <% @review.rating.times do %>
+              <% stars = @review.rating %>
+              <% full_stars = stars.floor %>
+              <% empty_stars = 5 - stars %>
+              <% half_star = empty_stars - empty_stars.floor %>
+
+              <% full_stars.times do %>
                   <%= icon('fas', 'star', class: 'star-table') %>
               <% end %>
-              <% (5 - @review.rating).times do %>
-                  <%= icon('far', 'star', class: 'star-table') %>
+
+              <% if half_star > 0 %>
+                <%= icon('fas', 'star-half-alt', class: 'star-table') %>
+              <% end %>
+
+              <% if empty_stars %>
+                <% empty_stars.floor.times do %>
+                  <%= icon('far', 'star', class: 'star-table') %>                  
+                <% end %>
               <% end %>
           <% end %>
         </th>
       </tr>
     </thead>
     <tbody>
-      <% if @review.os == "" %>
+      <% unless @review.os == "" %>
         <tr>
-          <td><%= icon('fab', 'amazon') %> Sistema Operacional</td>
+          <td><%= icon('fas', 'brain') %> Sistema Operacional</td>
           <td><%= @review.os %></td>
         </tr>
       <% end %>
@@ -175,6 +199,23 @@
       <% end %>
     </tbody>
   </table>
+
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <h3 class="font-weight-bold text-dark">Você vai gostar também...</h3>
+
+      <ul style="list-style-type: none; margin: 0; padding: 0">
+        <% @review.posts.each do |post| %>
+          <li><%= icon('fas', "file-invoice", class: 'text-primary') %> <strong><%= link_to post.title, "/#{post.url}" %></strong></p>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+
+  <br />
 </div>
 
 <% if @admin %>
