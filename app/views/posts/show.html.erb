@@ -8,11 +8,15 @@
         <br />
 
         <div class="float-right">
-          <%= @post.pic.html_safe %>
+          <% if @post.pic != "" %>
+              <%= @post.pic.html_safe %>
+          <% else  %>
+              <div class="nopic img-thumbnail"></div>
+          <% end %>
         </div>
 
         <div>
-          <%= @post.intro.html_safe %>
+          <%= simple_format @post.intro %>
         </div>
 
         <p>
@@ -57,10 +61,17 @@
             
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 card bg-white">
               <div class="card-body text-center">
-                <%= review.pic.html_safe %>        
+                  <% if review.pic != "" %>
+                      <%= review.pic.html_safe %>
+                  <% else  %>
+                      <div class="nopic img-thumbnail"></div>
+                  <% end %>
               </div>
-              <a href="<%= review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark" rel="nofollow" target="_blank">Compre na Amazon</a>
-              <br />
+
+              <% if review.buy_on_amazon != "" %>
+                  <a href="<%= review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark" rel="nofollow" target="_blank">Compre na Amazon</a>
+                  <br />
+              <% end %>
             </div>
 
           </div>

@@ -9,8 +9,12 @@
       
       <h2><%= link_to post.title, post.url %></h2>
 
-      <div class="float-right">
-        <%= post.pic.html_safe %>
+      <div class="float-right">        
+        <% if post.pic != "" %>
+            <%= post.pic.html_safe %>
+        <% else  %>
+            <div class="nopic img-thumbnail"></div>
+        <% end %>
       </div>
 
       <div>
