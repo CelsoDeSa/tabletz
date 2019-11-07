@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get "posts/:url", to: redirect(path: "/%{url}")
   get "/:url", to: "posts#show"  
 
-  root 'posts#index'
+  root 'reviews#index'
 end
