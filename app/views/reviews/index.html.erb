@@ -5,10 +5,19 @@
 <% end %>
 
     <% @reviews.each do |review| %>
-
         <h2><%= link_to review.title, "#{review.device}/#{review.url}" %></h2>
-        
-        <%= simple_format review.summary %>
+
+        <div class="float-right">        
+          <% if review.pic != "" %>
+              <%= review.pic.html_safe %>
+          <% else  %>
+              <div class="nopic img-thumbnail"></div>
+          <% end %>
+        </div>
+
+        <div>        
+          <%= simple_format review.summary %>
+        </div>
 
         <br />
 
@@ -16,4 +25,5 @@
           <%= link_to 'Edit', edit_review_path(review) %>
           <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
+
     <% end %>
