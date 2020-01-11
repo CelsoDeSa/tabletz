@@ -53,10 +53,17 @@
         <br />
       <% end %>      
     </div>
-
   </div>
 
   <br />
+
+  <% unless @review.video == "" %>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{@review.video}?start=#{@review.video_start}&end=#{@review.video_end}" %> allowfullscreen></iframe>
+    </div>
+
+    <br />
+  <% end %>
 
   <div class="card-group">
     <div class="card">
@@ -82,9 +89,6 @@
 
   <div class="row">
     <div class="col">
-
-      <%= @review.video ? @review.video : "" %>
-
       <div>
         <%= simple_format @review.description %>
       </div>
@@ -120,6 +124,12 @@
       </tr>
     </thead>
     <tbody>
+      <% unless @review.buy_on_amazon == "" %>
+        <tr>
+          <td><%= icon('fas', 'dollar-sign') %> Preço</td>
+          <td><a href="<%= @review.buy_on_amazon %>" class="btn btn-warning btn-sm font-weight-bold text-dark" rel="nofollow" target="_blank">Ver na Amazon</a></td>
+        </tr>
+      <% end %>
       <% unless @review.os == "" %>
         <tr>
           <td><%= icon('fas', 'brain') %> Sistema Operacional</td>

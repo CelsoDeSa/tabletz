@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_125947) do
+ActiveRecord::Schema.define(version: 2020_01_11_144214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 2019_08_22_125947) do
     t.string "connection"
     t.string "cpu"
     t.string "extras"
+    t.integer "video_start"
+    t.integer "video_end"
   end
 
 end

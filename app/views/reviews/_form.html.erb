@@ -13,7 +13,7 @@
   
   <div class="form-group">
     <%= form.label :device %>
-    <%= form.select(:device, options_for_select(['tablets', 'kindles', 'ipads'], form.object.device), {}, class: "form-control") %>
+    <%= form.select(:device, options_for_select(['notebooks', 'tablets', 'kindles', 'ipads'], form.object.device), {}, class: "form-control") %>
   </div>
 
   <div class="form-group">
@@ -27,8 +27,18 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :video %>
+    <%= form.label :video, "ID do Vídeo" %>
     <%= form.text_field :video, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :video_start, "Começo do Vídeo (em segundos)" %>
+    <%= form.number_field :video_start, min: "0", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :video_end, "Fim do Vídeo (em segundos)" %>
+    <%= form.number_field :video_end, min: "0", class: "form-control" %>
   </div>
 
   <div class="form-group">

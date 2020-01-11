@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    has_and_belongs_to_many :reviews, -> { order('updated_at desc') }
+    has_and_belongs_to_many :reviews, -> { order('rating desc') }
     validates :title, :url, presence: true
     validates :url, uniqueness: true
     before_save :modify_pic
