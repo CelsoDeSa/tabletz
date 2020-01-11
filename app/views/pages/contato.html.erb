@@ -1,4 +1,5 @@
 <br />
+<% @subtitle = "Contato - Tablet Z" %>
 <h1><%= icon('fas', 'comments') %> Contato</h1>
 <br />
 
@@ -14,9 +15,9 @@ Apesar de talvez demorar um pouco para responder, você pode entrar em contato p
 <br />
 
 <ul style="list-style-type: none; margin: 0; padding: 0">
-    <% Review.all.limit(10).each do |review| %>
+    <% Post.all.limit(10).each do |post| %>
 
-        <li><%= icon('fas', 'star', class: 'text-primary') %> <strong><%= link_to review.title, "#{review.device}/#{review.url}" %></strong></li>
+        <li><%= icon('fas', 'star', class: 'text-primary') %> <strong><%= link_to post.title, "#{post.url}" %></strong></li>
 
     <% end %>
 </ul>

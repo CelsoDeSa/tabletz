@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
     def get_title
         @title = Proc.new do
             if @review
-                @review.title
+                "#{@review.title} é bom? - Tablet Z"
             elsif @post
-                @post.title
+                "#{@post.title} - Tablet Z"
             else
                 "Tablet Z"
             end

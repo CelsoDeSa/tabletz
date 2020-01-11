@@ -1,4 +1,5 @@
 <br />
+<% @subtitle = "Sobre - Tablet Z" %>
 <h1><%= icon('fas', 'cogs') %> Um blog não só sobre tablets</h1>
 <br />
 
@@ -37,9 +38,9 @@ Fique à vontade para mandar suas dúvidas para mim via meu <%= link_to "Twitter
 <h2>Veja alguns artigos populares</h2>
 
 <ul style="list-style-type: none; margin: 0; padding: 0">
-    <% Review.all.limit(10).each do |review| %>
+    <% Post.all.limit(10).each do |post| %>
 
-        <li><%= icon('fas', 'star', class: 'text-primary') %> <strong><%= link_to review.title, "#{review.device}/#{review.url}" %></strong></li>
+        <li><%= icon('fas', 'star', class: 'text-primary') %> <strong><%= link_to post.title, "#{post.url}" %></strong></li>
 
     <% end %>
 </ul>
