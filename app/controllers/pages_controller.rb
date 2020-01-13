@@ -2,8 +2,8 @@ class PagesController < ApplicationController
 
   def home
     @page_title = "Esse Laptop/Notebook, PC, Smartphone, Tablet É Bom?"
-    @posts = Post.all
-    @reviews = Review.all
+    @posts = Post.all.order('updated_at desc')
+    @reviews = Review.all.order('rating desc')
   end
 
   def sobre
