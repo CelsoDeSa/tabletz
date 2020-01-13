@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
                 "#{@review.title} É Bom? - Tablet Z"
             elsif @post
                 "#{@post.title} - Tablet Z"
+            elsif @page_title
+                "#{@page_title} - Tablet Z"
             else
                 "Tablet Z"
             end

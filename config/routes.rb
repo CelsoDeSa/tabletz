@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # get '/home', to: 'pages#home'
   get '/sobre', to: 'pages#sobre'
   get '/contato', to: 'pages#contato'
   get '/termos_de_uso', to: 'pages#termos_de_uso'
@@ -18,5 +19,5 @@ Rails.application.routes.draw do
   get "posts/:url", to: redirect(path: "/%{url}")
   get "/:url", to: "posts#show"  
 
-  root 'reviews#index'
+  root 'pages#home'
 end
