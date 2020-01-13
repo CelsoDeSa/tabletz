@@ -49,7 +49,7 @@
       </div>
 
       <% if @review.buy_on_amazon != "" %>
-        <a href="<%= @review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark" rel="nofollow" target="_blank">Compre na Amazon</a>
+        <a href="<%= @review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark" rel="nofollow">Compre na Amazon</a>
         <br />
       <% end %>      
     </div>
@@ -127,7 +127,7 @@
       <% unless @review.buy_on_amazon == "" %>
         <tr>
           <td><%= icon('fas', 'dollar-sign') %> Preço</td>
-          <td><a href="<%= @review.buy_on_amazon %>" class="btn btn-warning btn-sm font-weight-bold text-dark" rel="nofollow" target="_blank">Ver na Amazon</a></td>
+          <td><a href="<%= @review.buy_on_amazon %>" class="btn btn-warning btn-sm font-weight-bold text-dark" rel="nofollow">Ver na Amazon</a></td>
         </tr>
       <% end %>
       <% unless @review.os == "" %>
