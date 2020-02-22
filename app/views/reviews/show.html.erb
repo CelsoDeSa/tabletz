@@ -49,7 +49,36 @@
       </div>
 
       <% if @review.buy_on_amazon != "" %>
-        <a href="<%= @review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark" rel="nofollow">Compre na Amazon</a>
+        <!-- Button trigger modal -->
+          <button type="button" class="btn btn-warning font-weight-bold text-dark" data-toggle="modal" data-target=<%= "#modal-#{@review.url}"%>>
+            Ver Preço
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id=<%= "modal-#{@review.url}"%> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Preço nas melhores lojas online...</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <a href="<%= @review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark btn-block" rel="nofollow">Amazon</a>
+                  
+                  <a href="<%= @review.buy_on_amazon %>" class="btn btn-danger font-weight-bold btn-block" rel="nofollow">Americanas</a>
+                  
+                  <a href="<%= @review.buy_on_amazon %>" class="btn btn-primary font-weight-bold btn-block" rel="nofollow">Submarino</a>
+                  
+                  <a href="<%= @review.buy_on_amazon %>" class="btn btn-info font-weight-bold btn-block" rel="nofollow">Shoptime</a>
+                </div>
+                <div class="modal-footer">
+                  *Links abrem em uma nova janela
+                </div>
+              </div>
+            </div>
+          </div>
         <br />
       <% end %>      
     </div>
@@ -98,8 +127,8 @@
   <table class="table table-striped table-dark">
     <thead>
       <tr>
-        <th><%= @review.title %></th>
-        <th>
+        <th style="width: 50%"><%= @review.title %></th>
+        <th style="width: 50%">
           <% if @review.rating %>
               <% stars = @review.rating %>
               <% full_stars = stars.floor %>
@@ -127,7 +156,11 @@
       <% unless @review.buy_on_amazon == "" %>
         <tr>
           <td><%= icon('fas', 'dollar-sign') %> Preço</td>
-          <td><a href="<%= @review.buy_on_amazon %>" class="btn btn-warning btn-sm font-weight-bold text-dark" rel="nofollow">Ver na Amazon</a></td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm font-weight-bold text-dark" data-toggle="modal" data-target=<%= "#modal-#{@review.url}"%>>
+              Ver Preço
+            </button>
+          </td>
         </tr>
       <% end %>
       <% unless @review.os == "" %>
