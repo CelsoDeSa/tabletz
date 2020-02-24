@@ -68,9 +68,46 @@
                   <% end %>
               </div>
 
-              <% if review.buy_on_amazon != "" %>
-                  <a href="<%= review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark" rel="nofollow" target="_blank">Compre na Amazon</a>
-                  <br />
+              <% if review.buying_options_not_blank? %>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-warning font-weight-bold text-dark" data-toggle="modal" data-target=<%= "#modal-#{review.url}"%>>
+                  Ver Preço
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id=<%= "modal-#{review.url}"%> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Preço nas melhores lojas online...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <% unless review.buy_on_amazon.blank? %>
+                          <a href="<%= review.buy_on_amazon %>" class="btn btn-warning font-weight-bold text-dark btn-block" rel="nofollow noopener noreferrer" target="_blank">Amazon</a>
+                        <% end %>
+
+                        <% unless review.buy_on_americanas.blank?  %>
+                          <a href="<%= review.buy_on_americanas %>" class="btn btn-danger font-weight-bold btn-block" rel="nofollow noopener noreferrer" target="_blank">Americanas</a>
+                        <% end %>
+
+                        <% unless review.buy_on_submarino.blank? %>
+                          <a href="<%= review.buy_on_submarino %>" class="btn btn-primary font-weight-bold btn-block" rel="nofollow noopener noreferrer" target="_blank">Submarino</a>
+                        <% end %>
+
+                        <% unless review.buy_on_shoptime.blank? %>
+                          <a href="<%= review.buy_on_shoptime %>" class="btn btn-info font-weight-bold btn-block" rel="nofollow noopener noreferrer" target="_blank">Shoptime</a>
+                        <% end %>                  
+                      </div>
+                      <div class="modal-footer">
+                        *Links abrem em uma nova janela
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
               <% end %>
             </div>
 
@@ -78,7 +115,7 @@
 
           <br />
 
-          <% unless review.video == "" %>
+          <% unless review.video.blank? %>
             <div class="embed-responsive embed-responsive-16by9">
               <iframe class="embed-responsive-item" src=<%= "https://www.youtube.com/embed/#{review.video}?start=#{review.video_start}&end=#{review.video_end}" %> allowfullscreen></iframe>
             </div>
@@ -111,7 +148,11 @@
           <div class="row">
             <div class="col">
               <div>
-                <%= simple_format review.description %>
+                <% if review.description.length > 5000 %>
+                  <%= simple_format(truncate(review.description, length: 2500, separator: '.') { link_to " <i class='fas fa-hand-point-right'></i> <strong>Continue Lendo</strong>".html_safe, "#{review.device}/#{review.url}"}) %>
+                <% else %>
+                  <%= simple_format review.description %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -119,8 +160,17 @@
           <table class="table table-striped table-dark">
             <thead>
               <tr>
-                <th><%= review.title %></th>
-                <th>
+                <th colspan="2">
+                  <%= review.title %>
+                </th>     
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="min-width: 160px; width: 25%">
+                  <%= icon('fas', 'star') %> Avaliação
+                </td>
+                <td style="min-width: 100px; width: 75%">
                   <% if review.rating %>
                       <% stars = review.rating %>
                       <% full_stars = stars.floor %>
@@ -141,95 +191,97 @@
                         <% end %>
                       <% end %>
                   <% end %>
-                </th>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <% unless review.buy_on_amazon == "" %>
+              <% if review.buying_options_not_blank? %>
                 <tr>
                   <td><%= icon('fas', 'dollar-sign') %> Preço</td>
-                  <td><a href="<%= review.buy_on_amazon %>" class="btn btn-warning btn-sm font-weight-bold text-dark" rel="nofollow" target="_blank">Ver na Amazon</a></td>
+                  <td>
+                    <button type="button" class="btn btn-warning btn-sm font-weight-bold text-dark btn-block" data-toggle="modal" data-target=<%= "#modal-#{review.url}"%>  style="width: 100px">
+                      Ver Preço
+                    </button>
+                  </td>
                 </tr>
               <% end %>
-              <% unless review.os == "" %>
+              <% unless review.os.blank? %>
                 <tr>
                   <td><%= icon('fas', 'brain') %> Sistema Operacional</td>
                   <td><%= review.os %></td>
                 </tr>
               <% end %>
-              <% unless review.camera == "" %>
+              <% unless review.camera.blank? %>
                 <tr>
                   <td><%= icon('fas', 'camera') %> Câmera</td>
                   <td><%= review.camera %></td>
                 </tr>
               <% end %>
-              <% unless review.storage == "" %>
+              <% unless review.storage.blank? %>
                 <tr>
                   <td><%= icon('fas', 'th') %> Armazenamento</td>
                   <td><%= review.storage %></td>
                 </tr>
               <% end %>
-              <% unless review.display == "" %>
+              <% unless review.display.blank? %>
                 <tr>
                   <td><%= icon('fas', 'expand') %> Display</td>
                   <td><%= review.display %></td>
                 </tr>
               <% end %>
-              <% unless review.resolution == "" %>
+              <% unless review.resolution.blank? %>
                 <tr>
                   <td><%= icon('far', 'eye') %> Resolução</td>
                   <td><%= review.resolution %></td>
                 </tr>
               <% end %>
-              <% unless review.battery == "" %>
+              <% unless review.battery.blank? %>
                 <tr>
                   <td><%= icon('fas', 'battery-three-quarters') %> Bateria</td>
                   <td><%= review.battery %></td>
                 </tr>
               <% end %>
-              <% unless review.ram == "" %>
+              <% unless review.ram.blank? %>
                 <tr>
                   <td><%= icon('fas', 'memory') %> Ram</td>
                   <td><%= review.ram %></td>
                 </tr>
               <% end %>
-              <% unless review.weight == "" %>
+              <% unless review.weight.blank? %>
                 <tr>
                   <td><%= icon('fas', 'weight-hanging') %> Peso</td>
                   <td><%= review.weight %></td>
                 </tr>
               <% end %>
-              <% unless review.backlight == "" %>
+              <% unless review.backlight.blank? %>
                 <tr>
                   <td><%= icon('fas', 'lightbulb') %> Retroiluminação</td>
                   <td><%= review.backlight %></td>
                 </tr>
               <% end %>
-              <% unless review.touchscreen == "" %>
+              <% unless review.touchscreen.blank? %>
                 <tr>
                   <td><%= icon('fas', 'hand-point-up') %> Touchscreen</td>
                   <td><%= review.touchscreen %></td>
                 </tr>
               <% end %>
-              <% unless review.colors == "" %>
+              <% unless review.colors.blank? %>
                 <tr>
                   <td><%= icon('fas', 'palette') %> Cores</td>
                   <td><%= review.colors %></td>
                 </tr>
               <% end %>
-              <% unless review.connection == "" %>
+              <% unless review.connection.blank? %>
                 <tr>
                   <td><%= icon('fas', 'wifi') %> Conexão</td>
                   <td><%= review.connection %></td>
                 </tr>
               <% end %>
-              <% unless review.cpu == "" %>
+              <% unless review.cpu.blank? %>
                 <tr>
                   <td><%= icon('fas', 'microchip') %> Processador</td>
                   <td><%= review.cpu %></td>
                 </tr>
               <% end %>
-              <% unless review.extras == "" %>
+              <% unless review.extras.blank? %>
                 <tr>
                   <td><%= icon('fas', 'hand-holding-usd') %> Extras</td>
                   <td><%= simple_format review.extras %></td>

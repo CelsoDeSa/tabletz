@@ -4,6 +4,10 @@ class Review < ApplicationRecord
     validates :url, uniqueness: true
     before_save :modify_pic, :video_time_default
 
+    def buying_options_not_blank?
+        !self.buy_on_amazon.blank?||!self.buy_on_americanas.blank?||!self.buy_on_submarino.blank?||!self.buy_on_shoptime.blank?||!self.buy_on_magalu.blank?
+    end
+
     protected
  
     def modify_pic

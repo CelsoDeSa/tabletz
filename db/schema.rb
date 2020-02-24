@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_144214) do
+ActiveRecord::Schema.define(version: 2020_02_24_182511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,10 @@ ActiveRecord::Schema.define(version: 2020_01_11_144214) do
     t.string "extras"
     t.integer "video_start"
     t.integer "video_end"
+    t.string "buy_on_americanas"
+    t.string "buy_on_submarino"
+    t.string "buy_on_shoptime"
+    t.string "buy_on_magalu"
   end
 
 end

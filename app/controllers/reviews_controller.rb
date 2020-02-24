@@ -18,7 +18,40 @@ class ReviewsController < InheritedResources::Base
   private
 
     def review_params
-      params.require(:review).permit(:device, :title, :url, :video, :video_start, :video_end, :pic, :buy_on_amazon, :rating, :pros, :cons, :summary, :description, :os, :camera, :storage, :display, :resolution, :battery, :ram, :weight, :backlight, :touchscreen, :colors, :connection, :cpu, :extras)
+      params.require(:review)
+        .permit(
+          :device, 
+          :title, 
+          :url, 
+          :video, 
+          :video_start, 
+          :video_end, 
+          :pic, 
+          :buy_on_amazon, 
+          :buy_on_americanas,
+          :buy_on_submarino,
+          :buy_on_shoptime,
+          :buy_on_magalu,
+          :rating, 
+          :pros, 
+          :cons, 
+          :summary, 
+          :description, 
+          :os, 
+          :camera, 
+          :storage, 
+          :display, 
+          :resolution, 
+          :battery, 
+          :ram, 
+          :weight, 
+          :backlight, 
+          :touchscreen, 
+          :colors, 
+          :connection, 
+          :cpu, 
+          :extras
+        )
     end
 
 end
