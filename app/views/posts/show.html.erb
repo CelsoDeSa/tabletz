@@ -148,7 +148,7 @@
           <div class="row">
             <div class="col">
               <div>
-                <% if review.description.length > 5000 %>
+                <% if review.description.length > 4000 %>
                   <%= simple_format(truncate(review.description, length: 2500, separator: '.', escape: false) { link_to " <i class='fas fa-hand-point-right'></i> <strong>Continue Lendo</strong>".html_safe, "#{review.device}/#{review.url}"}) %>
                 <% else %>
                   <%= simple_format review.description %>
