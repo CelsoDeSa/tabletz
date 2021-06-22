@@ -1,68 +1,39 @@
 <br/>
 
-<h2><%= icon('fas', 'atlas') %> Posts em Destaque</h2>
+
+<h2><%= icon('fas', 'star') %> Posts em Destaque</h2>
 
 <% @posts.each do |post| %>
-    
-    <h3 class="font-weight-bold text-dark"><%= link_to post.title, post.url %></h3>
-
-<% end %>
-
-<br />
-
-<h2><%= icon('fas', 'star') %> Avaliações em Destaque</h2>
-
-<% @reviews.each do |review| %>
 
     <div class="row">
         <div class="col">
-        <h3 class="font-weight-bold text-dark"><%= link_to review.title, "#{review.device}/#{review.url}" %></h3>
+        <h3 class="font-weight-bold text-dark"><%= link_to post.title, post.url %></h3>
         </div>
     </div>
 
     <div class="card-group">
 
-        <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 card text-white bg-dark">
-            <div class="card-header text-center">
-                <% if review.rating %>
-                    <% stars = review.rating %>
-                    <% full_stars = stars.floor %>
-                    <% empty_stars = 5 - stars %>
-                    <% half_star = empty_stars - empty_stars.floor %>
-
-                    <% full_stars.times do %>
-                        <%= icon('fas', 'star', class: 'star') %>
-                    <% end %>
-
-                    <% if half_star > 0 %>
-                        <%= icon('fas', 'star-half-alt', class: 'star') %>
-                    <% end %>
-
-                    <% if empty_stars %>
-                        <% empty_stars.floor.times do %>
-                        <%= icon('far', 'star', class: 'star') %>                  
-                        <% end %>
-                    <% end %>
-                <% end %>
-            </div>
-            <div class="card-body">      
-                <%= simple_format review.summary %>
-            </div>
-        </div>
-        
-        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 card bg-white">
+         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 card bg-white">
             <div class="card-body text-center">
-                <% if review.pic != "" %>
-                <%= review.pic.html_safe %>
+                <% if post.pic != "" %>
+                <%= post.pic.html_safe %>
                 <% else  %>
                 <div class="nopic img-thumbnail"></div>
                 <% end %>
             </div>
 
         
-            <a href=<%= "#{review.device}/#{review.url}" %> class="btn btn-warning font-weight-bold text-dark">Continue Lendo...</a>
+            <a href=<%= "#{post.title}/#{post.url}" %> class="btn btn-warning font-weight-bold text-dark">Continue Lendo...</a>
             <br />     
         </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 card text-white bg-dark">
+
+            <div class="card-body">      
+                <%= simple_format post.intro %>
+            </div>
+        </div>
+        
     </div>
 
   <br />

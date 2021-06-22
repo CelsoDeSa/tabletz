@@ -10,34 +10,6 @@
   <br />
 
   <div class="card-group">
-
-    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 card text-white bg-dark">
-      <div class="card-header text-center">
-          <% if @review.rating %>
-              <% stars = @review.rating %>
-              <% full_stars = stars.floor %>
-              <% empty_stars = 5 - stars %>
-              <% half_star = empty_stars - empty_stars.floor %>
-
-              <% full_stars.times do %>
-                  <%= icon('fas', 'star', class: 'star') %>
-              <% end %>
-
-              <% if half_star > 0 %>
-                <%= icon('fas', 'star-half-alt', class: 'star') %>
-              <% end %>
-
-              <% if empty_stars %>
-                <% empty_stars.floor.times do %>
-                  <%= icon('far', 'star', class: 'star') %>                  
-                <% end %>
-              <% end %>
-          <% end %>
-      </div>
-      <div class="card-body">      
-        <%= simple_format @review.summary %>
-      </div>
-    </div>
     
     <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 card bg-white">
       <div class="card-body text-center">
@@ -91,6 +63,34 @@
         <% end %>
 
     </div>
+
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 card text-white bg-dark">
+      <div class="card-header text-center">
+          <% if @review.rating %>
+              <% stars = @review.rating %>
+              <% full_stars = stars.floor %>
+              <% empty_stars = 5 - stars %>
+              <% half_star = empty_stars - empty_stars.floor %>
+
+              <% full_stars.times do %>
+                  <%= icon('fas', 'star', class: 'star') %>
+              <% end %>
+
+              <% if half_star > 0 %>
+                <%= icon('fas', 'star-half-alt', class: 'star') %>
+              <% end %>
+
+              <% if empty_stars %>
+                <% empty_stars.floor.times do %>
+                  <%= icon('far', 'star', class: 'star') %>                  
+                <% end %>
+              <% end %>
+          <% end %>
+      </div>
+      <div class="card-body">      
+        <%= simple_format @review.summary %>
+      </div>
+    </div>
   </div>
 
   <br />
@@ -128,7 +128,7 @@
   <div class="row">
     <div class="col">
       <div>
-        <%= simple_format @review.description %>
+        <%= simple_format @review.description, {}, sanitize: false %>
       </div>
     </div>
   </div>
@@ -143,10 +143,10 @@
             </thead>
             <tbody>
               <tr>
-                <td style="min-width: 160px; width: 25%">
+                <td style="min-width: 160px; width: 50%">
                   <%= icon('fas', 'star') %> Avaliação
                 </td>
-                <td style="min-width: 100px; width: 75%">
+                <td style="min-width: 100px; width: 50%">
                   <% if @review.rating %>
                       <% stars = @review.rating %>
                       <% full_stars = stars.floor %>

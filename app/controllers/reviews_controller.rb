@@ -1,17 +1,20 @@
 class ReviewsController < InheritedResources::Base
   before_action :authenticate_admin_user!, only: [:new, :edit, :update, :destroy]
-  before_action :find_by_url, only: :show
+  before_action :find_by_url, only: [:show, :index]
 
   def find_by_url
     device = params[:device] =~ /s$/ ? params[:device].gsub(/s$/, "") : params[:device]
     @review = Review.find_by(device: params[:device], url: params[:url]) || Review.find_by(id: params[:id])
+    @reviews = Review.all.where(device: params[:device])
 
     if @review
       @review
     elsif device != params[:device]
       redirect_to "/#{device}/#{params[:url]}"
+    elsif @reviews
+      @reviews
     else
-      redirect_to '/'
+      redirect_to "/"
     end
   end
 
