@@ -5,11 +5,14 @@ class ReviewsController < InheritedResources::Base
   def find_by_url
     device = params[:device] =~ /s$/ ? params[:device].gsub(/s$/, "") : params[:device]
     @review = Review.find_by(device: params[:device], url: params[:url]) || Review.find_by(id: params[:id])
+    @reviews = params[:device] ? Review.all.where(device: params[:device]) :  Review.all
 
     if @review
       @review
     elsif params[:url] && device != params[:device]
       redirect_to "/#{device}/#{params[:url]}"
+    elsif @reviews
+      @reviews
     else
       redirect_to "/"
     end

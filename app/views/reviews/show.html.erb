@@ -179,6 +179,12 @@
                   </td>
                 </tr>
               <% end %>
+              <% unless @review.device.blank? %>
+                <tr>
+                  <td><%= icon('fas', 'bolt') %> Dispositivo</td>
+                  <td><%= link_to @review.device, "/dispositivos/#{@review.device}" %></td>
+                </tr>
+              <% end %>
               <% unless @review.os.blank? %>
                 <tr>
                   <td><%= icon('fas', 'brain') %> Sistema Operacional</td>

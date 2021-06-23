@@ -5,7 +5,7 @@
 <% end %>
 
     <% @reviews.each do |review| %>
-        <h2><%= link_to review.title, "#{review.device}/#{review.url}" %></h2>
+        <h2><%= link_to review.title, "/#{review.device}/#{review.url}" %></h2>
 
         <div class="float-right">        
           <% if review.pic != "" %>
